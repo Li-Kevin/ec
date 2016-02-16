@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :option_values
+
   resources :product_option_typeships
 
   resources :option_types
