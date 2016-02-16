@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'stores#index'
+
   resources :option_values
 
   resources :product_option_typeships
