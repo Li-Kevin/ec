@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_option_typeship.product_id %>
+</p>
+
+<p>
+  <strong>Option type:</strong>
+  <%= @product_option_typeship.option_type_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_option_typeship_path(@product_option_typeship) %> |
+<%= link_to 'Back', product_option_typeships_path %>

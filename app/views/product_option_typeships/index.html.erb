@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Product Option Typeships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Option type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_option_typeships.each do |product_option_typeship| %>
+      <tr>
+        <td><%= product_option_typeship.product_id %></td>
+        <td><%= product_option_typeship.option_type_id %></td>
+        <td><%= link_to 'Show', product_option_typeship %></td>
+        <td><%= link_to 'Edit', edit_product_option_typeship_path(product_option_typeship) %></td>
+        <td><%= link_to 'Destroy', product_option_typeship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product option typeship', new_product_option_typeship_path %>
