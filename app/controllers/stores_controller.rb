@@ -5,7 +5,7 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    flash[:warning] = "早安！你好！"
+    #flash[:warning] = "早安！你好！"
     @stores = Store.all
   end
 
