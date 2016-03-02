@@ -1,10 +1,13 @@
 class RegistrationsController < Devise::RegistrationsController
+
   prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
 
   # GET /resource/sign_up
   def new
     build_resource({})
+    # follow the instruction of " http://stackoverflow.com/questions/17767449/rails-4-0-with-devise-nested-attributes-unpermited-parameters "
+    resource.build_profile
     set_minimum_password_length
     yield resource if block_given?
     respond_with self.resource
@@ -143,6 +146,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   def translation_scope
     'devise.registrations'
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:username, :email, :password, :password_confirmation, :profile_attributes => [:phone,:birthday,:address])
+    end
   end
 
 end

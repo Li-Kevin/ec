@@ -27,12 +27,11 @@
   </div>
 
   <div>
-    <%= f.fields_for :user do |builder| %>
-      <%= render "user_profile", :f => builder %>
+    <%= f.fields_for :profile do |profile| %>
+      <%= render "user_profile", :f => profile %>
     <% end %>
   </div>
   
-
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
